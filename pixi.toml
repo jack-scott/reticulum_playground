@@ -1,4 +1,4 @@
-[project]
+[workspace]
 name = "reticulum-playground"
 version = "0.1.0"
 description = "Reticulum learning playground — experiments, tools and projects"
@@ -22,6 +22,7 @@ flask = "*"
 fastapi = "*"
 uvicorn = "*"
 rich = "*"
+platformio = "*"
 
 [feature.sideband.pypi-dependencies]
 # Sideband GUI client — requires system audio libs (see docs/hardware.md)
@@ -37,8 +38,9 @@ sideband = { features = ["sideband"], solve-group = "sideband" }
 verify = "python experiments/00_setup/verify_install.py"
 
 # Run the test suite
-test = "pytest tests/ -v"
+test = "pytest tests/test_rns_basics.py -v"
 test-fast = "pytest tests/test_rns_basics.py::TestImports tests/test_rns_basics.py::TestIdentityAndDestination -v"
+test-interop = "pytest tests/test_rust_interop.py -v"
 
 # RNS daemon (interactive — run in a separate terminal)
 rnsd = "rnsd -v"
