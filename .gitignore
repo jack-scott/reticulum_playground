@@ -1,0 +1,33 @@
+# pixi
+.pixi/
+*.egg-info/
+
+# RNS local state (each experiment keeps its own)
+**/rns_config/
+**/lxmf_storage/
+**/lxmf_client_identity
+**/lxmf_client_storage/
+
+# Identity files (don't commit private keys)
+**/my_identity
+**/new_identity
+**/*.identity
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# PlatformIO build artifacts
+**/.pio/
+
+# Rust build artifacts
+**/target/
+
+# SQLite databases
+*.db
+*.sqlite
+
+# OS
+.DS_Store
+Thumbs.db

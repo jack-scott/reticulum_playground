@@ -1,0 +1,50 @@
+[project]
+name = "reticulum-playground"
+version = "0.1.0"
+description = "Reticulum learning playground — experiments, tools and projects"
+channels = ["conda-forge"]
+platforms = ["linux-64"]
+
+[dependencies]
+python = ">=3.11,<3.13"
+
+[pypi-dependencies]
+rns = "*"
+lxmf = "*"
+lxst = "*"
+colorama = "*"
+prompt_toolkit = "*"
+pytest = "*"
+
+[feature.dev.pypi-dependencies]
+# Extra deps for development tooling
+flask = "*"
+fastapi = "*"
+uvicorn = "*"
+rich = "*"
+
+[feature.sideband.pypi-dependencies]
+# Sideband GUI client — requires system audio libs (see docs/hardware.md)
+sbapp = "*"
+
+[environments]
+default = { features = [], solve-group = "default" }
+dev = { features = ["dev"], solve-group = "default" }
+sideband = { features = ["sideband"], solve-group = "sideband" }
+
+[tasks]
+# Verify the environment works
+verify = "python experiments/00_setup/verify_install.py"
+
+# Run the test suite
+test = "pytest tests/ -v"
+test-fast = "pytest tests/test_rns_basics.py::TestImports tests/test_rns_basics.py::TestIdentityAndDestination -v"
+
+# RNS daemon (interactive — run in a separate terminal)
+rnsd = "rnsd -v"
+
+# Interface and network status
+status = "rnstatus"
+
+# Path table inspection
+paths = "rnpath -t"
