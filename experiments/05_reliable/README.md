@@ -22,9 +22,9 @@ Channel messages must implement `RNS.MessageBase`. Messages are guaranteed to ar
 ## Reference
 
 ```
-../reticulum_sources/Reticulum/Examples/Channel.py
-../reticulum_sources/Reticulum/Examples/Buffer.py
-../reticulum_sources/Reticulum/Examples/Request.py
+sources/Reticulum/Examples/Channel.py
+sources/Reticulum/Examples/Buffer.py
+sources/Reticulum/Examples/Request.py
 ```
 
 ## Channel vs Packet vs Buffer

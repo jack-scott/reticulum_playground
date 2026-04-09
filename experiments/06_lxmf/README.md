@@ -40,10 +40,10 @@ pixi run python experiments/06_lxmf/send_message.py <address>
 ## Reference
 
 ```
-../reticulum_sources/LXMF/docs/example_sender.py
-../reticulum_sources/LXMF/docs/example_receiver.py
-../reticulum_sources/LXMF/LXMF/LXMRouter.py   # full router API
-../reticulum_sources/LXMF/LXMF/LXMessage.py    # message structure
+sources/LXMF/docs/example_sender.py
+sources/LXMF/docs/example_receiver.py
+sources/LXMF/LXMF/LXMRouter.py   # full router API
+sources/LXMF/LXMF/LXMessage.py    # message structure
 ```
 
 ## LXMF Message Structure

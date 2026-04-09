@@ -1,0 +1,42 @@
+[submodule "sources/Reticulum"]
+	path = sources/Reticulum
+	url = https://github.com/markqvist/Reticulum.git
+[submodule "sources/LXMF"]
+	path = sources/LXMF
+	url = https://github.com/markqvist/LXMF.git
+[submodule "sources/LXST"]
+	path = sources/LXST
+	url = https://github.com/markqvist/LXST.git
+[submodule "sources/Sideband"]
+	path = sources/Sideband
+	url = https://github.com/markqvist/Sideband.git
+[submodule "sources/RNode_Firmware"]
+	path = sources/RNode_Firmware
+	url = https://github.com/markqvist/RNode_Firmware
+[submodule "sources/meshchat"]
+	path = sources/meshchat
+	url = https://github.com/jardous/meshchat.git
+[submodule "sources/lxmf-cli"]
+	path = sources/lxmf-cli
+	url = https://github.com/fr33n0w/lxmf-cli.git
+[submodule "sources/microReticulum"]
+	path = sources/microReticulum
+	url = https://github.com/attermann/microReticulum.git
+[submodule "sources/Reticulum-rs"]
+	path = sources/Reticulum-rs
+	url = https://github.com/BeechatNetworkSystemsLtd/Reticulum-rs.git
+[submodule "sources/rns-mavlink-rs"]
+	path = sources/rns-mavlink-rs
+	url = https://github.com/BeechatNetworkSystemsLtd/rns-mavlink-rs.git
+[submodule "sources/rns-tun-rs"]
+	path = sources/rns-tun-rs
+	url = https://github.com/BeechatNetworkSystemsLtd/rns-tun-rs
+[submodule "sources/rns-vpn-rs"]
+	path = sources/rns-vpn-rs
+	url = https://github.com/BeechatNetworkSystemsLtd/rns-vpn-rs
+[submodule "sources/RETCON"]
+	path = sources/RETCON
+	url = https://github.com/DanBeard/RETCON
+[submodule "sources/RNS-Tools"]
+	path = sources/RNS-Tools
+	url = https://github.com/SebastianObi/RNS-Tools

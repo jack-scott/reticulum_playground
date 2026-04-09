@@ -28,5 +28,5 @@ pixi run rnid --generate ./experiments/02_addressing/new_identity
 
 ## Reference
 
-See `../reticulum_sources/Reticulum/RNS/Identity.py` for the full identity API.
+See `sources/Reticulum/RNS/Identity.py` for the full identity API.
 How hashes are computed: `RNS/Destination.py` → `Destination.hash_from_name_and_identity()`

@@ -18,23 +18,23 @@ Shows: interface name, type, state, bytes sent/received, packets sent/received.
 
 ```bash
 # Show all known paths
-pixi run python -m RNS.Tools.rnpath -t
+pixi run python -m RNS.Utilities.rnpath -t
 
 # Look up path to a specific destination
-pixi run python -m RNS.Tools.rnpath <destination_hash>
+pixi run python -m RNS.Utilities.rnpath <destination_hash>
 
 # Flush all paths (force rediscovery)
-pixi run python -m RNS.Tools.rnpath -f
+pixi run python -m RNS.Utilities.rnpath -f
 ```
 
 ### rnprobe — Connectivity Check
 
 ```bash
 # Test if a destination is reachable (sends a packet, waits for proof)
-pixi run python -m RNS.Tools.rnprobe <destination_hash>
+pixi run python -m RNS.Utilities.rnprobe <destination_hash>
 
 # With timeout
-pixi run python -m RNS.Tools.rnprobe --timeout 10 <destination_hash>
+pixi run python -m RNS.Utilities.rnprobe --timeout 10 <destination_hash>
 ```
 
 ### rns_announce_view — Live Announce Sniffer
@@ -42,7 +42,8 @@ pixi run python -m RNS.Tools.rnprobe --timeout 10 <destination_hash>
 Watch all announces heard by this node in real-time:
 
 ```bash
-pixi run python ../../reticulum_sources/RNS-Tools/rns_announce_view/rns_announce_view.py
+# Watch all announces (replace "app_name" with a specific aspect to filter)
+pixi run python sources/RNS-Tools/rns_announce_view/rns_announce_view.py -f app_name
 ```
 
 ### rns_hop_simulator — Multi-Hop Test on One Machine
@@ -51,7 +52,7 @@ Simulates N transport hops using multiple RNS instances connected via TCP:
 
 ```bash
 # Build config files first (see hop_sim/ subdirectory)
-pixi run python ../../reticulum_sources/RNS-Tools/rns_hop_simulator/rns_hop_simulator.py \
+pixi run python sources/RNS-Tools/rns_hop_simulator/rns_hop_simulator.py \
     -c 3 \
     --cfg_entry experiments/09_debug/hop_sim/entry.config \
     --cfg_exit experiments/09_debug/hop_sim/exit.config

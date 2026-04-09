@@ -105,7 +105,7 @@ Two modes:
 - **Transport**: headless relay node (WiFi mesh + LoRa)
 - **Client**: creates WiFi AP, serves MeshChat at `retcon.local`
 
-Source: `../reticulum_sources/RETCON/`
+Source: `sources/RETCON/`
 
 ---
 
@@ -175,7 +175,7 @@ For Heltec v4 / boards with PSRAM, add to build flags:
 
 Resource, Channel, Buffer, and Ratchets are not yet implemented in microReticulum. For experiments needing these, use Python RNS on a Pi instead.
 
-Source: `../reticulum_sources/microReticulum/`
+Source: `sources/microReticulum/`
 
 ---
 
@@ -212,7 +212,7 @@ codingrate = 5           # 4/5 to 4/8
 
 All LilyGO T-Beam, T3S3, LoRa32, T-Echo, Heltec LoRa32 v2/v3/v4, RAK4631, generic ESP32 + SX1276/1278/1262/1268/1280.
 
-Source: `../reticulum_sources/RNode_Firmware/`
+Source: `sources/RNode_Firmware/`
 
 ---
 

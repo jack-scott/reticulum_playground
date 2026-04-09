@@ -25,7 +25,7 @@ directly interpretable by Python RNS and vice versa.
 Build the Rust examples:
 
 ```bash
-cd ../../reticulum_sources/Reticulum-rs
+cd sources/Reticulum-rs
 cargo build --example tcp_server --example tcp_client
 ```
 
@@ -95,7 +95,7 @@ process and cover crypto, transport, routing, and persistence.
 Run the C++ tests:
 
 ```bash
-cd ../../reticulum_sources/microReticulum
+cd sources/microReticulum
 pixi run -e dev --manifest-path ../../reticulum_playground/pixi.toml pio test -e native14
 ```
 

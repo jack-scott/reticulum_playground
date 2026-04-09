@@ -9,14 +9,14 @@ Run Reticulum on an ESP32 using microReticulum (C++/PlatformIO). Get it to annou
 ```bash
 # Build for native Linux (test first, no hardware needed)
 docker run --rm -it \
-    -v /home/jack/Documents/projects/reticulum_sources/microReticulum:/workspace \
+    -v "$(pwd)/sources/microReticulum":/workspace \
     -w /workspace \
     python:3.11 \
     bash -c "pip install platformio && pio run -e native14"
 
 # Build and flash to TTGO T-Beam (USB must be accessible)
 docker run --rm -it --privileged \
-    -v /home/jack/Documents/projects/reticulum_sources/microReticulum:/workspace \
+    -v "$(pwd)/sources/microReticulum":/workspace \
     -w /workspace \
     -v /dev:/dev \
     python:3.11 \
@@ -49,7 +49,7 @@ NOT yet implemented:
 
 ## Custom Experiment Code
 
-Put experiment code in `src/main.cpp`. The library is at `../reticulum_sources/microReticulum/src/`.
+Put experiment code in `src/main.cpp`. The library is at `sources/microReticulum/src/`.
 
 See the microReticulum source for API patterns — it mirrors the Python API closely:
 ```cpp

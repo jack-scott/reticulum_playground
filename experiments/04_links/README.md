@@ -18,7 +18,7 @@ Establish an encrypted link between two endpoints. Send data back and forth. Und
 
 ## Reference
 
-`../reticulum_sources/Reticulum/Examples/Link.py` — complete working example to adapt.
+`sources/Reticulum/Examples/Link.py` — complete working example to adapt.
 
 ## Link Lifecycle
 

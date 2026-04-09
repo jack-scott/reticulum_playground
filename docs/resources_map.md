@@ -1,6 +1,12 @@
 # Reticulum Sources Map
 
-All repos live at `../reticulum_sources/` relative to this playground.
+All repos live at `sources/` inside this repo as git submodules.
+
+To pull everything fresh on a new machine:
+
+```bash
+git submodule update --init --recursive
+```
 
 ---
 
@@ -8,6 +14,7 @@ All repos live at `../reticulum_sources/` relative to this playground.
 
 ### `Reticulum/` — Python Reference Implementation
 **The canonical spec and primary dev platform.**
+GitHub: https://github.com/markqvist/Reticulum
 
 | File | What it does |
 |---|---|
@@ -66,6 +73,7 @@ All repos live at `../reticulum_sources/` relative to this playground.
 
 ### `LXMF/` — Lightweight Extensible Message Format
 **The standard messaging protocol on top of RNS.**
+GitHub: https://github.com/markqvist/LXMF
 
 **Wire format (111 bytes overhead):**
 ```
@@ -97,6 +105,7 @@ N bytes   msgpack payload: [timestamp, content, title, fields_dict]
 
 ### `LXST/` — Lightweight Extensible Signal Transport
 **Real-time audio over RNS. EARLY ALPHA — APIs will change.**
+GitHub: https://github.com/markqvist/LXST
 
 | File | What it does |
 |---|---|
@@ -123,6 +132,7 @@ N bytes   msgpack payload: [timestamp, content, title, fields_dict]
 
 ### `Sideband/` — Full-Featured GUI Client
 **Cross-platform: Android APK, Linux pip, macOS DMG, Windows ZIP.**
+GitHub: https://github.com/markqvist/Sideband
 
 - LXMF messaging + LXST voice calls
 - Image, file, audio message transfers (Codec2 audio works over LoRa)
@@ -150,6 +160,7 @@ N bytes   msgpack payload: [timestamp, content, title, fields_dict]
 ---
 
 ### `meshchat/` — Two Minimal Chat Implementations
+GitHub: https://github.com/jardous/meshchat
 
 | File | What it is |
 |---|---|
@@ -162,6 +173,7 @@ Good for: understanding bare RNS vs LXMF from clean, minimal code.
 
 ### `lxmf-cli/` — Terminal LXMF Client
 **Feature-rich CLI with plugin system. Works on Linux/Windows/Android (Termux).**
+GitHub: https://github.com/fr33n0w/lxmf-cli
 
 Key features: conversation threading, contact management, stamp-cost spam protection, blacklist, hot-reload plugins.
 
@@ -185,6 +197,7 @@ Key features: conversation threading, contact management, stamp-cost spam protec
 
 ### `RNode_Firmware/` — LoRa Radio Firmware (Arduino/C++)
 **Turns ESP32+LoRa boards into RNode radio interfaces for a Linux host.**
+GitHub: https://github.com/markqvist/RNode_Firmware
 
 > RNode = a **radio interface** (like a USB network card), not a standalone Reticulum node. The host runs Python RNS and attaches to the RNode via serial USB.
 
@@ -213,6 +226,7 @@ Key features: conversation threading, contact management, stamp-cost spam protec
 
 ### `microReticulum/` — C++ RNS for Microcontrollers
 **Full C++ port of the Reticulum stack. PlatformIO. NOT MicroPython.**
+GitHub: https://github.com/attermann/microReticulum
 
 **Implemented:** Identity, Destination, Transport, Link, Packet, AES-256, persistence
 
@@ -245,6 +259,7 @@ Key features: conversation threading, contact management, stamp-cost spam protec
 
 ### `Reticulum-rs/` — Rust RNS Implementation
 **Targets embedded Linux (Pi, Jetson). NOT bare-metal MCU (uses std).**
+GitHub: https://github.com/BeechatNetworkSystemsLtd/Reticulum-rs
 
 Supports: TCP, serial, UDP, Kaonic (gRPC-based tactical radio).
 
@@ -260,6 +275,7 @@ Supports: TCP, serial, UDP, Kaonic (gRPC-based tactical radio).
 
 ### `rns-mavlink-rs/` — MAVLink Bridge over RNS
 **Connects flight controller to ground station over Reticulum mesh.**
+GitHub: https://github.com/BeechatNetworkSystemsLtd/rns-mavlink-rs
 
 | Component | Runs on | Does |
 |---|---|---|
@@ -273,11 +289,13 @@ Supports: TCP, serial, UDP, Kaonic (gRPC-based tactical radio).
 ---
 
 ### `rns-tun-rs/` — TUN Interface over RNS
+GitHub: https://github.com/BeechatNetworkSystemsLtd/rns-tun-rs
 Minimal TUN virtual network device over RNS. Server + client. Requires root. Entire impl in `src/lib.rs`.
 
 ---
 
 ### `rns-vpn-rs/` — P2P VPN over RNS
+GitHub: https://github.com/BeechatNetworkSystemsLtd/rns-vpn-rs
 Full peer-to-peer VPN. CIDR subnet (`Config.toml`), peers by destination hash. X25519+Ed25519 keys via `genkeys.sh`.
 
 ---
@@ -286,6 +304,7 @@ Full peer-to-peer VPN. CIDR subnet (`Config.toml`), peers by destination hash. X
 
 ### `RETCON/` — Raspberry Pi Mesh Deployer
 **Builds pre-configured Pi SD images that auto-form mesh networks.**
+GitHub: https://github.com/DanBeard/RETCON
 
 | Mode | What it does |
 |---|---|
@@ -301,6 +320,7 @@ Auto-detects RNodes and Meshtastic devices. Admin via LXMF.
 ---
 
 ### `RNS-Tools/` — Utility Scripts
+GitHub: https://github.com/SebastianObi/RNS-Tools
 Standalone Python tools by Sebastian Obi. All support systemd service mode.
 
 | Tool | What it does |

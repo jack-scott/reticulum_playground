@@ -32,7 +32,7 @@ Goals:
 
 Key concepts: Destination, Announce, `register_announce_handler`, app_name + aspects, destination hash
 
-Source reference: `../reticulum_sources/Reticulum/Examples/Announce.py`
+Source reference: `sources/Reticulum/Examples/Announce.py`
 
 ---
 
@@ -60,7 +60,7 @@ Goals:
 
 Key concepts: `RNS.Packet`, `PacketReceipt`, delivery callback, timeout callback, proof strategy, RSSI/SNR
 
-Source reference: `../reticulum_sources/Reticulum/Examples/Echo.py`
+Source reference: `sources/Reticulum/Examples/Echo.py`
 
 ---
 
@@ -75,7 +75,7 @@ Goals:
 
 Key concepts: `RNS.Link`, `set_link_established_callback`, `set_packet_callback`, link lifecycle, 3-packet setup
 
-Source reference: `../reticulum_sources/Reticulum/Examples/Link.py`
+Source reference: `sources/Reticulum/Examples/Link.py`
 
 ---
 
@@ -89,7 +89,7 @@ Goals:
 
 Key concepts: `link.get_channel()`, `MessageBase`, `RNS.Buffer`, `register_request_handler`, `RNS.RequestReceipt`
 
-Source references: `../reticulum_sources/Reticulum/Examples/Channel.py`, `Buffer.py`, `Request.py`
+Source references: `sources/Reticulum/Examples/Channel.py`, `Buffer.py`, `Request.py`
 
 ---
 
@@ -106,7 +106,7 @@ Goals:
 
 Key concepts: `LXMRouter`, `LXMessage`, delivery methods, `lxmd`, propagation node sync
 
-Source references: `../reticulum_sources/LXMF/docs/example_sender.py`, `example_receiver.py`
+Source references: `sources/LXMF/docs/example_sender.py`, `example_receiver.py`
 
 ```bash
 # In one terminal — propagation node
@@ -129,7 +129,7 @@ Goals:
 
 Key concepts: `RNS.Resource`, `ACCEPT_ALL`, resource progress callbacks, compression, `rncp`
 
-Source reference: `../reticulum_sources/Reticulum/Examples/Resource.py`
+Source reference: `sources/Reticulum/Examples/Resource.py`
 
 ---
 
@@ -164,11 +164,11 @@ Goals:
 
 Key tools: `rnstatus`, `rnpath`, `rnprobe`, `rns_announce_view.py`, `rns_hop_simulator.py`
 
-Source reference: `../reticulum_sources/RNS-Tools/`
+Source reference: `sources/RNS-Tools/`
 
 ```bash
 # Hop simulator (3 hops)
-pixi run python ../../reticulum_sources/RNS-Tools/rns_hop_simulator/rns_hop_simulator.py \
+pixi run python ../sources/RNS-Tools/rns_hop_simulator/rns_hop_simulator.py \
     -c 3 --cfg_entry entry.cfg --cfg_exit exit.cfg
 ```
 
@@ -187,7 +187,7 @@ Goals:
 
 System deps required: `sudo apt install python3-pyaudio codec2`
 
-Source reference: `../reticulum_sources/LXST/examples/`
+Source reference: `sources/LXST/examples/`
 
 ---
 
@@ -213,7 +213,7 @@ docker run --rm -it --privileged \
     python:3.11 bash -c "pip install platformio && pio run -e ttgo-t-beam -t upload"
 ```
 
-Source reference: `../reticulum_sources/microReticulum/`
+Source reference: `sources/microReticulum/`
 
 ---
 
@@ -233,7 +233,7 @@ Components:
 - `collector.py` — receives LXMF, stores to SQLite
 - `dashboard.py` — Flask/FastAPI serving readings
 
-Reference: Sideband telemetry plugins (`../reticulum_sources/Sideband/docs/example_plugins/bme280_telemetry.py`)
+Reference: Sideband telemetry plugins (`sources/Sideband/docs/example_plugins/bme280_telemetry.py`)
 
 ---
 
@@ -251,7 +251,7 @@ Components:
 - `projects/viz_debug/dashboard.py` — web dashboard
 - `projects/viz_debug/static/` — frontend
 
-Reference: `../reticulum_sources/RNS-Tools/rns_announce_directory/rns_announce_directory.py`
+Reference: `sources/RNS-Tools/rns_announce_directory/rns_announce_directory.py`
 
 ---
 
@@ -280,7 +280,7 @@ sudo ./target/release/gc
 
 Config files: `Gc.toml` (gc_udp_address, gc_reply_port, fc_destination), `Fc.toml` (serial_port, serial_baud, gc_destination)
 
-Source reference: `../reticulum_sources/rns-mavlink-rs/`
+Source reference: `sources/rns-mavlink-rs/`
 
 ---
 

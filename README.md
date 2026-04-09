@@ -6,13 +6,16 @@ A structured learning repo for [Reticulum](https://reticulum.network) — a cryp
 
 Hands-on experiments, reference docs, and capstone projects for learning Reticulum from scratch through to real hardware deployments. Everything is kept here so context builds across sessions.
 
-Source repos are in `../reticulum_sources/`. See `docs/resources_map.md` for a full inventory of what's there.
+Source repos are in `sources/` as git submodules. See `docs/resources_map.md` for a full inventory of what's there.
 
 ## Quick Start
 
 ```bash
 # Install pixi if you don't have it
 curl -fsSL https://pixi.sh/install.sh | bash
+
+# Pull all source repos (submodules)
+git submodule update --init --recursive
 
 # Install the environment (no global installs)
 pixi install

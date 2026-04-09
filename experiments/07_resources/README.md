@@ -44,8 +44,8 @@ pixi run rncp --to <destination_hash> ./somefile.txt
 
 ## Reference
 
-`../reticulum_sources/Reticulum/Examples/Resource.py`
-`../reticulum_sources/Reticulum/Examples/Filetransfer.py`
+`sources/Reticulum/Examples/Resource.py`
+`sources/Reticulum/Examples/Filetransfer.py`
 
 ## Throughput Notes
 

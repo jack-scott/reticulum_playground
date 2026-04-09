@@ -6,14 +6,14 @@ A structured learning and experimentation repo for Reticulum networking. The goa
 
 ## Source Repos Location
 
-All reference source code is at `../reticulum_sources/` (relative to this repo). Full inventory in `docs/resources_map.md`.
+All reference source code is at `sources/` (in this repo as git submodules). Full inventory in `docs/resources_map.md`.
 
 Key repos to reference:
-- `../reticulum_sources/Reticulum/` — Python reference impl + 14 examples in `Examples/`
-- `../reticulum_sources/LXMF/` — messaging protocol, `docs/example_sender.py` + `example_receiver.py`
-- `../reticulum_sources/microReticulum/` — C++ MCU port, `platformio.ini` for board configs
-- `../reticulum_sources/rns-mavlink-rs/` — drone MAVLink bridge (Rust)
-- `../reticulum_sources/RNode_Firmware/` — LoRa radio firmware (Arduino/C++)
+- `sources/Reticulum/` — Python reference impl + 14 examples in `Examples/`
+- `sources/LXMF/` — messaging protocol, `docs/example_sender.py` + `example_receiver.py`
+- `sources/microReticulum/` — C++ MCU port, `platformio.ini` for board configs
+- `sources/rns-mavlink-rs/` — drone MAVLink bridge (Rust)
+- `sources/RNode_Firmware/` — LoRa radio firmware (Arduino/C++)
 
 ## Environment
 

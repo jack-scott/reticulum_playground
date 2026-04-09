@@ -52,7 +52,7 @@ Codec2/Opus Decoder (Processing)
 Speaker (Sink)
 ```
 
-See pipeline examples in `../reticulum_sources/LXST/examples/`.
+See pipeline examples in `sources/LXST/examples/`.
 
 ## Status Note
 

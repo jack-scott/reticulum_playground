@@ -43,7 +43,7 @@ dashboard.py (Flask)
 
 ## Reference
 
-`../reticulum_sources/RNS-Tools/rns_announce_directory/rns_announce_directory.py`
+`sources/RNS-Tools/rns_announce_directory/rns_announce_directory.py`
 — this does the SQLite storage part. Adapt the announce handler and storage, replace the NomadNet frontend with a web dashboard.
 
 ## Announce Handler API

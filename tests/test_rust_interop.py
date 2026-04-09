@@ -7,11 +7,11 @@ exchange announce packets over TCP using their shared HDLC framing protocol.
 Architecture:
 - The session RNS fixture (port 14399) is not used here — each interop test
   spawns both sides as subprocesses because RNS is a process-level singleton.
-- Rust examples are compiled from ../reticulum_sources/Reticulum-rs/ and the
+- Rust examples are compiled from sources/Reticulum-rs/ and the
   binaries are expected in that project's target/debug/examples/ directory.
 
 Prerequisites:
-    cd ../reticulum_sources/Reticulum-rs && cargo build --example tcp_server --example tcp_client
+    cd sources/Reticulum-rs && cargo build --example tcp_server --example tcp_client
 
 Run: pixi run test-interop
 """
@@ -26,7 +26,7 @@ import pytest
 
 # Paths
 _REPO_ROOT = pathlib.Path(__file__).parent.parent
-RETICULUM_RS_DIR = _REPO_ROOT.parent / "reticulum_sources" / "Reticulum-rs"
+RETICULUM_RS_DIR = _REPO_ROOT / "sources" / "Reticulum-rs"
 RUST_TCP_SERVER = RETICULUM_RS_DIR / "target" / "debug" / "examples" / "tcp_server"
 RUST_TCP_CLIENT = RETICULUM_RS_DIR / "target" / "debug" / "examples" / "tcp_client"
 

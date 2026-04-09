@@ -23,7 +23,7 @@ Laptop
 cd projects/drone_sideband
 
 # Copy source
-cp -r ../../reticulum_sources/rns-mavlink-rs/ ./rns-mavlink-rs/
+cp -r sources/rns-mavlink-rs/ ./rns-mavlink-rs/
 cd rns-mavlink-rs
 
 # Build for x86 Linux (laptop gc binary)
@@ -101,8 +101,8 @@ codingrate = 5
 
 ## Reference
 
-`../../reticulum_sources/rns-mavlink-rs/`
-`../../reticulum_sources/Reticulum-rs/`
+`sources/rns-mavlink-rs/`
+`sources/Reticulum-rs/`
 
 ## Notes
 

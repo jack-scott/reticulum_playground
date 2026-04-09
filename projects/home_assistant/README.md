@@ -68,5 +68,5 @@ msg = LXMF.LXMessage(
 ## Reference
 
 Sideband's telemetry plugin system:
-`../reticulum_sources/Sideband/docs/example_plugins/bme280_telemetry.py`
-`../reticulum_sources/Sideband/docs/example_plugins/telemetry.py`
+`sources/Sideband/docs/example_plugins/bme280_telemetry.py`
+`sources/Sideband/docs/example_plugins/telemetry.py`
