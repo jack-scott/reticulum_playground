@@ -269,3 +269,176 @@ docker run --rm -it \
 | 12 | ~0.29 kbps | Maximum | Emergency/extreme range, very slow |
 
 Bandwidth 125 kHz is standard. 250 kHz doubles data rate, halves range.
+
+---
+
+## Interface Configuration Reference
+
+Full docs: https://markqvist.github.io/Reticulum/manual/interfaces.html
+
+### Common Options (all interface types)
+
+| Option | Default | Description |
+|---|---|---|
+| `enabled` | `False` | Must be `yes` to bring the interface up |
+| `mode` | `full` | Interface mode — see below |
+| `outgoing` | `True` | Set `no` to make the interface receive-only |
+| `network_name` | — | Virtual network name — segments the network |
+| `passphrase` | — | Authentication passphrase for named segments |
+| `announce_cap` | `2` | Max % of bandwidth for announces and upkeep |
+| `bitrate` | auto | Interface bitrate in bits/second |
+
+### Interface Modes
+
+| Mode | Shorthand | Description |
+|---|---|---|
+| `full` | — | Default. All discovery, meshing, and transport active. |
+| `gateway` | `gw` | Like full, but also resolves unknown paths on behalf of clients on this interface. Put this mode on the interface **facing clients**, not the wider network. |
+| `access_point` | `ap` | Like gateway, but suppresses automatic announces. Stays quiet until used. Good for wide-area radio serving mobile users. |
+| `roaming` | — | For physically mobile interfaces (e.g. external LoRa on a vehicle). Paths via roaming interfaces expire faster. |
+| `boundary` | — | Marks an interface as a boundary between significantly different network segments (e.g. a TCP internet link on a LoRa mesh node). |
+
+### TCPServerInterface
+
+For accepting inbound connections — use on a publicly reachable node (home server, VPS).
+
+```ini
+[[MyTCPServer]]
+  type = TCPServerInterface
+  enabled = yes
+  listen_ip = 0.0.0.0
+  listen_port = 4242
+  mode = gateway          # resolve paths for connecting clients
+```
+
+| Option | Description |
+|---|---|
+| `listen_ip` | IP to bind (`0.0.0.0` = all interfaces) |
+| `listen_port` | TCP port to listen on |
+| `device` | Bind to a named network device instead of IP (e.g. `eth0`) |
+| `prefer_ipv6` | Set `yes` to bind IPv6 when available on device |
+
+### TCPClientInterface
+
+For connecting outbound to a server — use on mobile nodes, devices behind NAT, etc.
+
+```ini
+[[MyTCPClient]]
+  type = TCPClientInterface
+  enabled = yes
+  target_host = 1.2.3.4
+  target_port = 4242
+  mode = boundary         # marks this as a boundary to a different network segment
+```
+
+| Option | Description |
+|---|---|
+| `target_host` | Hostname or IPv4/IPv6 address of server |
+| `target_port` | Port of server |
+| `kiss_framing` | Set `yes` for KISS TNC / soundmodem targets |
+| `fixed_mtu` | Fixed MTU in bytes (for KISS devices with MTU limits) |
+| `i2p_tunneled` | Set `yes` to tunnel over I2P |
+
+### Home-to-Mobile Setup (phone on 5G → home LAN)
+
+```
+Phone (5G)
+  └── TCPClientInterface → home public IP:4242
+
+Beelink/home server
+  ├── TCPServerInterface (mode = gateway)   ← phone connects here
+  └── AutoInterface                         ← home LAN devices
+
+Home LAN device
+  └── AutoInterface                         ← Beelink routes for it
+```
+
+Beelink config:
+```ini
+enable_transport = yes
+
+[[HomeServer]]
+  type = TCPServerInterface
+  enabled = yes
+  listen_ip = 0.0.0.0
+  listen_port = 4242
+  mode = gateway
+```
+
+Requires port forwarding 4242 on your home router to the Beelink. If your ISP uses CGNAT (no real public IP), use a cheap VPS running a TCPServerInterface as a relay instead.
+
+### BackboneInterface
+
+High-performance interface for Linux/Android. Interchangeable with TCPServerInterface/TCPClientInterface — a BackboneInterface can connect to a remote TCPServerInterface and vice versa. Preferred for permanent links between nodes.
+
+```ini
+# Connect to a public backbone node
+[[Backbone Remote]]
+  type = BackboneInterface
+  enabled = yes
+  remote = amsterdam.connect.reticulum.network
+  target_port = 4251
+
+# Connect over Yggdrasil (IPv6)
+[[Yggdrasil Remote]]
+  type = BackboneInterface
+  enabled = yes
+  remote = 201:5d78:af73:5caf:a4de:a79f:3278:71e5
+  target_port = 4251
+```
+
+Public backbone nodes are listed at https://reticulum.network/connect.html — these are community-run relays you can connect to without running your own server.
+
+---
+
+## Bootstrapping Connectivity
+
+Reticulum is not a service you join — it's a networking stack. You choose how to connect to peers.
+
+### Connect to the Distributed Backbone
+
+A global volunteer-run backbone of Transport Nodes provides internet-wide connectivity. Good places to find interface definitions:
+
+- https://directory.rns.recipes
+- https://rmap.world
+
+The recommended approach is **organic growth**: use a `bootstrap_only` interface to temporarily connect to the wider network, discover local/relevant peers automatically, form direct links to them, then discard the bootstrap link. This produces a geographically efficient, resilient mesh rather than everything routing through a distant server.
+
+```ini
+[[BootstrapLink]]
+  type = BackboneInterface
+  enabled = yes
+  remote = amsterdam.connect.reticulum.network
+  target_port = 4251
+  bootstrap_only = yes    # automatically detach once local peers are discovered
+```
+
+### Build Personal Infrastructure (recommended)
+
+Rather than connecting every device directly to a public internet gateway, run a personal Transport Node at home:
+
+1. Repurpose an old PC, Raspberry Pi, or supported router
+2. Connect it to your WiFi (and optionally an RNode LoRa radio)
+3. Configure a `bootstrap_only` TCP interface for initial discovery
+4. Enable `enable_transport = yes`
+5. Your personal devices connect to your local node instead of the internet directly
+
+Your node listens continuously, discovers community peers, validates their identities, and builds direct links. Your traffic flows through local paths rather than bouncing off distant servers.
+
+Example home Transport Node config:
+
+```ini
+enable_transport = yes
+
+# Local devices connect via AutoInterface (no config needed)
+
+# Bootstrap to wider network temporarily to discover peers
+[[Bootstrap]]
+  type = BackboneInterface
+  enabled = yes
+  remote = amsterdam.connect.reticulum.network
+  target_port = 4251
+  bootstrap_only = yes
+
+# Once local peers are discovered, direct links replace the bootstrap
+```

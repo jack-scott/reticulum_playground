@@ -40,3 +40,6 @@
 [submodule "sources/RNS-Tools"]
 	path = sources/RNS-Tools
 	url = https://github.com/SebastianObi/RNS-Tools
+[submodule "sources/microReticulum_Firmware"]
+	path = sources/microReticulum_Firmware
+	url = https://github.com/attermann/microReticulum_Firmware.git

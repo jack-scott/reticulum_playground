@@ -15,6 +15,7 @@ lxst = "*"
 colorama = "*"
 prompt_toolkit = "*"
 pytest = "*"
+nomadnet = ">=0.9.9, <0.10"
 
 [feature.dev.pypi-dependencies]
 # Extra deps for development tooling

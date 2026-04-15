@@ -1,0 +1,30 @@
+[workspace]
+name = "pico-rns"
+version = "0.1.0"
+description = "Reticulum thin-client for Pico 2W — MicroPython"
+channels = ["conda-forge"]
+platforms = ["linux-64"]
+
+[dependencies]
+python = ">=3.11"
+micropython = "*"
+
+[pypi-dependencies]
+mpremote = ">=1.23"
+
+[tasks]
+# Run crypto/packet tests under MicroPython Unix port (no Pico needed)
+test = "micropython test_local.py"
+
+# Listen for Reticulum announces on the local network (laptop must be on WiFi)
+listen = "micropython tools/listen.py"
+
+# Deploy lib/ and main.py to a connected Pico over USB
+# mpremote auto-detects the serial port
+deploy = "mpremote fs cp -r lib/ : && mpremote fs cp main.py :"
+
+# Open a REPL on the connected Pico
+repl = "mpremote repl"
+
+# Show what's on the Pico filesystem
+ls = "mpremote fs ls /"
